@@ -32,9 +32,16 @@ class EncryptTest {
     @org.junit.jupiter.api.Test
     void cipher() {
         int[] p1 = {1};
+        int[] p2 = {1,4};
+        int[] p3= {1,0,5};
         Encrypt encrypt = new Encrypt();
         Encrypt.cipher(p1);
-        Assertions.assertEquals(p1,"2");
+        Encrypt.cipher(p2);
+        Encrypt.cipher(p3);
+        Assertions.assertEquals(p1[0],2);
+        Assertions.assertEquals(p2[0]+","+p2[1],"2,5");
+        Assertions.assertEquals(p3[0]+","+p3[1]+","+p3[2],"2,1,6");
+
 
     }
 
