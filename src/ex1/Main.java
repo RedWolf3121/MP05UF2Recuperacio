@@ -11,15 +11,19 @@ public class Main {
         String input = in.nextLine();
 
         //Step 2: convert the given input into a char array and convert it its extended ASCII equivalent
-        // he realizado la extraccion del metodo dejando el char porque me realizaba una extraccion de metodo objeto.
+        // He realizado una extraccion del metodo dejando el char porque incluyendolo realiza una extraccionde metodo objeto.
+        // De esta forma se puede crear el metodo sin problemas.
         char[] ch = input.toCharArray();
         int[] ascii = converterASCII(ch);
 
         //Step 3: add +1 to the ASCII equivalence in order to "encode"
-        //
+        // En elsiguiente paso he separado el codigo que lo que realiza es añadir el siguiente caracter de la letra escrita
+        // metiendolo en un metodo y pasando el codigo ascii como parametro.
         cipher(ascii);
 
         //Step 4: convert the ASCII codes into chars again and rebuild the string
+        // En elsiguiente paso he separado el codigo metiendolo en un metodo llamado convertToString ya que lo que hace es convertir en string el codigo ascii.
+        // Despues he pasado como parametros el caracter y el codigo ascii guardandoloen un string output.
         String output = convertToString(ch, ascii);
 
         //Step 5: send the result to the output
@@ -27,6 +31,8 @@ public class Main {
         System.out.println(output);
 
         //Step 6: decrypt in order to check if it works
+        //He extrido el codigo metiendolo en un metodo llamado decrypt pasando el caracter y el codigo ascci,
+        // el codigo se encarga de desencriptar elcodigo el texto realizando la encriptacion a la inversa.
         String reverse = decrypt(ch, ascii);
 
         //Step 7: send the result to the output

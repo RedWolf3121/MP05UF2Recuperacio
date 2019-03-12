@@ -1,4 +1,4 @@
-package ex2;
+package ex3;
 
 public class Encrypt {
     static String decrypt(char[] ch, int[] ascii) {
@@ -14,7 +14,9 @@ public class Encrypt {
         return new String(ch);
     }
 
-    static String convertToString(char[] ch, int[] ascii) {
+    static String convertToString( int[] ascii) {
+        //error
+        char[] ch = new char[ascii.length];
         for (int i = 0; i < ascii.length; i++)
             ch[i] = (char) ascii[i];
 

@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Main {
 
+    // He realizado una extraccion de clase separando los metodosde encrypt, cipher, convertToString y convertASCII
+    // ya que son los metodos que se necesitan para poder realizar una enciptacion debido a que necesitamos convertir el texto en ascii
+    // y luego en string paramas adelante realizar la encriptacion y desencriptacion.
+
     public static void main(String[] args) {
         //Step 1: read the users text
         System.out.println("Please, insert the message in order to encrypt:");
@@ -12,13 +16,14 @@ public class Main {
 
         //Step 2: convert the given input into a char array and convert it its extended ASCII equivalent
         char[] ch = input.toCharArray();
-        int[] ascii = converterASCII(ch);
+        int[] ascii = Encrypt.converterASCII(ch);
 
         //Step 3: add +1 to the ASCII equivalence in order to "encode"
+        //
         Encrypt.cipher(ascii);
 
         //Step 4: convert the ASCII codes into chars again and rebuild the string
-        String output = convertToString(ch, ascii);
+        String output = Encrypt.convertToString(ch, ascii);
 
         //Step 5: send the result to the output
         System.out.println("Your encrypted message:");
@@ -32,17 +37,4 @@ public class Main {
         System.out.println(reverse);
     }
 
-    private static String convertToString(char[] ch, int[] ascii) {
-        for (int i = 0; i < ascii.length; i++)
-            ch[i] = (char) ascii[i];
-
-        return new String(ch);
-    }
-
-    private static int[] converterASCII(char[] ch) {
-        int[] ascii = new int[ch.length];
-        for(int i = 0; i < ch.length; i++)
-            ascii[i] = (int)ch[i];
-        return ascii;
-    }
 }
