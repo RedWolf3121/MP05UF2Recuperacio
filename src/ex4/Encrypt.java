@@ -4,14 +4,13 @@ public class Encrypt {
 
     /***
      * El siguiente metodo se encarga de desencriptat el texto en ASCII para acabar retornando un sting con el texto que se intodujo al principio.
-     * @param ch es el array de caracteres donde se almacena cada letra del texto.
      * @param ascii es un array de enteros donde se guarda el codigo ascii del texto.
      * @return devuelve un string con el array de caracteres que contiene el texto desencriptado.
      */
-    static String decrypt(char[] ch, int[] ascii) {
-        for (int i = 0; i < ch.length; i++)
-            ascii[i] = (int) ch[i];
-
+    static String decrypt(int[] ascii) {
+        //solucionado problema para que el tamaño del array sea el mismo que el del ascii si no daria problemas cuando fuesen de diferente tamaño.
+        char[] ch = new char[ascii.length];
+        //  eliminado el primer for porque eliminaba el valor de ascii y devolvia siemprre -1.
         for (int i = 0; i < ascii.length; i++)
             ascii[i] -= 1;
 
@@ -23,11 +22,12 @@ public class Encrypt {
 
     /***
      * Este metodo se encarga de pasar el texto encriptado en ascci para poder mostrarlo por pantalla.
-     * @param ch es el array de caracteres donde se almacena cada letra del texto.
      * @param ascii es un array de enteros donde se guarda el codigo ascii del texto.
      * @return retorna un string con el array de caracteres que contiene el texto encriptado.
      */
-    static String convertToString(char[] ch, int[] ascii) {
+    static String convertToString( int[] ascii) {
+        //solucionado problema para que el tamaño del array sea el mismo que el del ascii si no daria problemas cuando fuesen de diferente tamaño.
+        char[] ch = new char[ascii.length];
         for (int i = 0; i < ascii.length; i++)
             ch[i] = (char) ascii[i];
 
@@ -35,7 +35,7 @@ public class Encrypt {
     }
 
     /***
-     * Estemetodo realiza el cifrado del texto en ascii añadiendo el caracter que esta en la siguiente posicion de la tabla ascii.
+     * Este metodo realiza el cifrado del texto en ascii añadiendo el caracter que esta en la siguiente posicion de la tabla ascii.
      * @param ascii contiene el texto escrito en codigo ascii.
      */
     static void cipher(int[] ascii) {

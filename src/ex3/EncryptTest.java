@@ -8,13 +8,25 @@ class EncryptTest {
 
     @org.junit.jupiter.api.Test
     void decrypt() {
+
+        int[] p1 = {66};
+        int[] p2 = {66,123};
+        int[] p3 = {66,123,42};
         Encrypt encrypt = new Encrypt();
+        Encrypt.decrypt(p1);
+        Encrypt.decrypt(p2);
+        Encrypt.decrypt(p3);
+        String s1 = encrypt.convertToString(p1);
+        String s2 = encrypt.convertToString(p2);
+        String s3 = encrypt.convertToString(p3);
+        Assertions.assertEquals("A",s1);
+        Assertions.assertEquals("Az",s2);
+        Assertions.assertEquals("Az)",s3);
 
     }
 
     @org.junit.jupiter.api.Test
     void convertToString() {
-
 
         Encrypt encrypt = new Encrypt();
         int[] ascii1 = {122};
